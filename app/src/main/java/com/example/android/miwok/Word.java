@@ -6,7 +6,7 @@ package com.example.android.miwok;
  */
 public class Word {
 
-    /** Image resource ID for the word */
+    /** Image resource ID for the word; if there is an image, variable will be updated */
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     /** Constant value that represents no image was provided for this word,
      * -1 is out of the range of all the possible valid resource ID*/
@@ -90,6 +90,8 @@ public class Word {
         return mAudioResourceId;
     }
 
+    // alt + insert
+    // to print the current state of an object to the logs
     @Override
     public String toString() {
         return "Word{" +

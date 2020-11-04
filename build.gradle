@@ -1,10 +1,31 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+// in the ROOT PROJECT DIRECTORY
 
+// It uses the buildscript block to DEFINE REPOSITORIES AND DEPENDENCIES FOR GRADLE ITSELF—MEANING that are COMMON TO ALL MODULES IN THE PROJECT,
+// you should not include dependencies for your modules here.
 buildscript {
+
+    /**
+     * The repositories block configures the REPOSITORIES GRADLE USES TO
+     * SEARCH OR DOWNLOAD THE DEPENDENCIES. Gradle pre-configures support for remote
+     * repositories such as JCenter, Maven Central, and Ivy. You can also use local
+     * repositories or define your own remote repositories. The code below defines
+     * JCenter as the repository Gradle should use to look for its dependencies.
+     *
+     * New projects created using Android Studio 3.0 and higher also include
+     * Google's Maven repository.
+     */
     repositories {
         jcenter()
         google()
     }
+
+    /**
+     * The dependencies block configures the dependencies Gradle needs to use
+     * to build your project. The following line adds ANDROID PLUGIN FOR GRADLE
+     * version 4.0.0 AS A CLASSPATH DEPENDENCY, because it provides the additional instructions
+     * Gradle needs to build Android app modules.
+     */
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
 
@@ -13,9 +34,19 @@ buildscript {
     }
 }
 
+
+/**
+ * The allprojects block is where you configure the repositories and
+ * dependencies used by all modules in your project, such as THIRD-PARTY PLUGINS
+ * or LIBRARIES. However, you should configure module-specific dependencies in
+ * each module-level build.gradle file. For new projects, Android Studio
+ * includes JCenter and Google's Maven repository by default, but it does not
+ * configure any dependencies (unless you select a template that requires some).
+ */
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 

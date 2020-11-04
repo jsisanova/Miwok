@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/selectableItemBackground"
-    android:drawSelectorOnTop="true"/>
-    <!-- Show the pressed state on each list item (last 2 attributes) -->
-
+    android:drawSelectorOnTop="true" />
+    <!-- Show the pressed state on each list item (last attribute) -->
+<!--    https://guides.codepath.com/android/ripple-animation-->

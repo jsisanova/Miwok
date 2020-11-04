@@ -1,1 +1,9 @@
 include ':app'
+
+
+// The settings.gradle file, located in the root project directory, tells Gradle which modules it should include when building your app.
+// For most projects, the file is simple and only includes the following:
+//
+//include ‘:app’
+//
+//However, multi-module projects need to specify each module that should go into the final build.

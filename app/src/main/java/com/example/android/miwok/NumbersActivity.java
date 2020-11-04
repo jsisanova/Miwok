@@ -180,14 +180,17 @@ public class NumbersActivity extends AppCompatActivity {
 //            mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);
 
                 // Release the media player if it currently exists because we are about to
-                // play a different sound file
+                // play a different sound file (if I click on different item before sound ends)
                 releaseMediaPlayer();
 
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
                 // Print out the Word object to the logs (these 2 are equivalent)
+                // If you concatenate a string with a Word object, then Java will implicitly call the toString() method on the object.
                 Log.v("NumbersActivity", "Current word: " + word);
 //                Log.v("NumbersActivity", "Current word: " + word.toString());
+//                Log.v("NumbersActivity", word.toString());  // here I have to use toString(), bcs I don't concatenate
+
 
                 // Create and setup the {@link MediaPlayer} for the audio resource associated with the current word
 //            mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
@@ -215,7 +218,11 @@ public class NumbersActivity extends AppCompatActivity {
 
                     // Setup a listener on the media player, so that we can stop and release the
                     // media player once the sound has finished playing.
+                    // better we create single instance of OnCompletionListener and reuse it each time, more efficient, doesn't take so much resources
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                    // like this we would create new OnCompletionListener every time
+//                    mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { ... };
+
                 }
             }
         });

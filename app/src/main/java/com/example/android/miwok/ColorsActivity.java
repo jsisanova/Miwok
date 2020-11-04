@@ -68,7 +68,8 @@ public class ColorsActivity extends AppCompatActivity {
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         // Create a list of words
-        final  ArrayList<Word> words = new ArrayList<Word>();
+        // variable words is accessed from within the inner (anonymous) class, needs to be declared final
+        final ArrayList<Word> words = new ArrayList<Word>();
 
         words.add(new Word(R.drawable.color_red, "red", "weṭeṭṭi", R.raw.color_red));
         words.add(new Word(R.drawable.color_mustard_yellow, "mustard yellow", "chiwiiṭә", R.raw.color_mustard_yellow));
@@ -98,6 +99,7 @@ public class ColorsActivity extends AppCompatActivity {
         // Set a click listener to play the audio when the list item is clicked on
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
+            // Callback method to be invoked when item in AdapterView is clicked
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             // Release the media player if it currently exists because we are about to
             // play a different sound file
@@ -115,6 +117,7 @@ public class ColorsActivity extends AppCompatActivity {
                 // We have audio focus now.
                 // Create and setup the {@link MediaPlayer} for the audio resource associated
                 // with the current word
+//                mMediaPlayer = MediaPlayer.create(ColorsActivity.this, words.get(position).getAudioResourceId());
                 mMediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getAudioResourceId());
 
                 // Start the audio file

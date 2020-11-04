@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context="com.example.android.miwok.MainActivity">
 
-        <!-- Keep the colored background per category view, as well as have touch feedback -->
+        <!-- Keep the colored background per category view, as well as have touch feedback - both are backgroud attributes, thats why TextView has to be nested in FrameLayout -->
         <!-- Numbers category -->
         <FrameLayout
             android:layout_width="match_parent"
